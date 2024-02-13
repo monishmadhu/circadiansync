@@ -11,7 +11,7 @@ def load_custom_css():
         }
 
         .sidebar .sidebar-content {
-            background-color: #8832b3;
+            background-color: purple;
             width: 400px;
         }
         </style>
