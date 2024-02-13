@@ -10,9 +10,12 @@ def main():
     st.markdown(
         """
         <style>
-        .sidebar .sidebar-content {
+        .sidebar.sidebar-content {
             background-color: #8832b3;
             width: 500px;
+        }
+        .title-wrapper {
+            text-align: center;
         }
         </style>
         """,
