@@ -12,7 +12,7 @@ def main():
         <style>
         .sidebar .sidebar-content {
             width: 500px;
-            background-color: ##8832b3;
+            background-color: #8832b3;
         }
         </style>
         """,
