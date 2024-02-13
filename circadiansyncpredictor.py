@@ -1,9 +1,9 @@
 import streamlit as st
 
 def main():
-    with open("circsync_css.css", "r") as f:
+    with open('circsync_css.css') as f:
         css = f.read()
-    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+    st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
     
     st.title("CircadianSync")
 
