@@ -1,18 +1,9 @@
 import streamlit as st
 
-@st.experimental_singleton
-def load_custom_css():
-    st.markdown(
-        """
-        <style>
-        @import url('circsync_css.css');
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-    
 def main():
-    load_custom_css()
+    with open("circsync_css.css", "r") as f:
+        css = f.read()
+    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
     
     st.title("CircadianSync")
 
