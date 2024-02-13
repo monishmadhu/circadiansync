@@ -5,15 +5,7 @@ def load_custom_css():
     st.markdown(
         """
         <style>
-
-        .centered-title {
-            text-align: center;
-        }
-
-        .sidebar .sidebar-content {
-            background-color: purple;
-            width: 400px;
-        }
+        @import url('circsync_css');
         </style>
         """,
         unsafe_allow_html=True
