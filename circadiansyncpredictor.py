@@ -6,6 +6,19 @@ def main():
     # Add content to the main area of the app
     st.write("This is the main content of the app.")
 
+    # Use st.markdown to define the width of the sidebar
+    st.markdown(
+        """
+        <style>
+        .sidebar .sidebar-content {
+            width: 500px;
+            background-color: ##8832b3;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
     # Add widgets to the sidebar
     st.sidebar.title("CircadianSync")
     # st.sidebar.image("https://raw.githubusercontent.com/your_username/your_repository/main/path/to/your/image.png", use_column_width=True)
