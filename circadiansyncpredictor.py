@@ -1,26 +1,31 @@
 import streamlit as st
 
-def main():
-    st.title("CircadianSync")
-
-    # Add content to the main area of the app
-    st.write("CircadianSync is a Machine Learning model that intakes the gene expression levels of patients in order to analyze and predict whether they have pancreatic adenocarcinoma, circadian dysfunction, neither, or both.")
-
-    # Use st.markdown to define the width of the sidebar
+@st.experimental_singleton
+def load_custom_css():
     st.markdown(
         """
         <style>
-        .sidebar.sidebar-content {
-            background-color: #8832b3;
-            width: 500px;
-        }
-        .title-wrapper {
+
+        .centered-title {
             text-align: center;
+        }
+
+        .sidebar .sidebar-content {
+            background-color: #8832b3;
+            width: 400px;
         }
         </style>
         """,
         unsafe_allow_html=True
     )
+    
+def main():
+    load_custom_css()
+    
+    st.title("CircadianSync")
+
+    # Add content to the main area of the app
+    st.write("CircadianSync is a Machine Learning model that intakes the gene expression levels of patients in order to analyze and predict whether they have pancreatic adenocarcinoma, circadian dysfunction, neither, or both.")
 
     # Add widgets to the sidebar
     st.sidebar.title("CircSync Predictor")
