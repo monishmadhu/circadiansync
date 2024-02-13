@@ -5,7 +5,7 @@ def load_custom_css():
     st.markdown(
         """
         <style>
-        @import url('circsync_css');
+        @import url('circsync_css.css');
         </style>
         """,
         unsafe_allow_html=True
