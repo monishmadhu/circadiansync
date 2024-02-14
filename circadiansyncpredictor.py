@@ -19,6 +19,12 @@ def main():
     # Add a file uploader widget to the sidebar
     uploaded_file = st.sidebar.file_uploader("Upload a file", type=["csv"])
 
+    # Dropdown menu in the sidebar
+    selected_option = st.sidebar.selectbox("Select an model", ["Random Forest", "Gradient Boosting Classifier", "K Neighbors", "Decision Tree Classifier"])
+
+    # Display selected option
+    st.write(f"You selected: {selected_option}")
+
     # Add a big image to the main portion of the app
     st.image("https://github.com/monishmadhu/circadiansync/blob/main/logo.png", use_column_width=True)
 
