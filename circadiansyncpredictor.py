@@ -20,7 +20,7 @@ def main():
     uploaded_file = st.sidebar.file_uploader("Upload a file", type=["csv"])
 
     # Add a big image to the main portion of the app
-    st.image("https://raw.githubusercontent.com/monishmadhu/circadiansync/blob/main/logo.png", use_column_width=True)
+    st.image("https://github.com/monishmadhu/circadiansync/blob/main/logo.png", use_column_width=True)
 
     # Process the uploaded file (if any)
     if uploaded_file is not None:
