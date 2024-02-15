@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
-import joblib
+import pickle
 
 def main():
     with open("circsync_css.css", "r") as f:
@@ -15,15 +15,15 @@ def main():
 
     # Add widgets to the sidebar
     st.sidebar.title("CircSync Predictor")
-    st.sidebar.markdown('<div class="sidebar-content">To use CircSync to predict a patient\'s diagnosis, upload a CSV/Excel file with their gene expression levels as numerical values in it. Make sure there are two columns: one for gene names labeled GeneID and one for the values labeled ExpressionLevels</div>', unsafe_allow_html=True)
+    st.sidebar.markdown('<div class="sidebar-content">To use CircSync to predict a patient\'s diagnosis, upload a CSV file with their gene expression levels as numerical values in it. Make sure there are two columns: one for gene names labeled GeneID and one for the values labeled ExpressionLevels</div>', unsafe_allow_html=True)
 
     # Upload the CSV file
     uploaded_file = st.sidebar.file_uploader("Upload a file", type=["csv"])
 
     if uploaded_file is not None:
-        # Read the CSV file into a pandas DataFrame
+        # Read the file into a pandas DataFrame
         df = pd.read_csv(uploaded_file)
-    
+
         # Remove the first column
         df.drop(df.columns[0], axis=1, inplace=True)
     
@@ -75,7 +75,17 @@ def main():
             test_ratios = calculate_ratios(test_data)
 
             # Load the model from the file
-            model = joblib.load('random_forest_model_ISEF (1).pkl')
+            # Specify the path to the model file
+            model_file_path = 'random_forest_model_ISEF (1).pkl'  # Replace 'path/to/' with the actual path to your model file
+
+            # Check if the file exists
+            if os.path.exists(model_file_path):
+                # Load the model from the file
+                with open(model_file_path, 'rb') as model_file:
+                    model = pickle.load(model_file)
+            else:
+                st.error(f"Model file '{model_file_path}' not found.")
+
 
             # Now you can use the loaded model to make predictions
             predictions = model.predict(test_ratios)
