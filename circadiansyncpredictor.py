@@ -75,7 +75,7 @@ def main():
             test_ratios = calculate_ratios(test_data)
 
             # Load the model from the file
-            model = joblib.load('random_forest_model_ISEF (2).pkl')
+            model = joblib.load('random_forest_model_ISEF (1).pkl')
 
             # Now you can use the loaded model to make predictions
             predictions = model.predict(test_ratios)
